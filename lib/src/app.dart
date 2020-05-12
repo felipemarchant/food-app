@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp/homescreen.dart';
+import 'package:foodapp/src/homescreen.dart';
 
 class App extends StatelessWidget {
   @override
