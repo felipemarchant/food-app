@@ -15,11 +15,11 @@ class _BoughtFoodsState extends State<BoughtFoods> {
           Container(
             height: 200.0,
             width: 400.00,
-            child: Image.asset("assets/images/breakfast.png", fit: BoxFit.cover,),
+            child: Image.asset("assets/images/breakfast.jpeg", fit: BoxFit.cover,),
           ),
           Positioned(
             left: 0.0,
-            top: 0.0,
+            bottom: 0.0,
             child: Container(
               height: 60.0,
               width: 340.0,
