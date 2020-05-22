@@ -7,12 +7,12 @@ import 'package:foodapp/src/widget/food_category.dart';
 import 'package:foodapp/src/widget/home_top_info.dart';
 import 'package:foodapp/src/widget/search_field.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _HomeScreenState();
+  State<StatefulWidget> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
 
   List<Food> _foods = foods;
 
