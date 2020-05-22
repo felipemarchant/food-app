@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodapp/src/widget/bought_food.dart';
+import 'package:foodapp/src/data/food_data.dart';
+import 'package:foodapp/src/widget/bought_foods.dart';
 import 'package:foodapp/src/widget/food_category.dart';
 import 'package:foodapp/src/widget/home_top_info.dart';
 import 'package:foodapp/src/widget/search_field.dart';
@@ -10,6 +12,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  List<Food> _foods = foods;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +28,28 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 20.0,),
           FoodSection(),
           SizedBox(height: 20.0,),
-          Container(child: BoughtFoods(),)
+          Column(
+            children: _foods.map(_buildFoodItem).toList(),
+          )
         ],
       ),
     );
   }
 
+  Widget _buildFoodItem(Food food) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 20.0),
+      child: BoughtFoods(
+        id: food.id,
+        name: food.name,
+        price: food.price,
+        discount: food.discount,
+        imagePath: food.imagePath,
+        category: food.category,
+        ratings: food.ratings,
+      ),
+    );
+  }
   Widget FoodSection() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
