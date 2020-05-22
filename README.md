@@ -5,7 +5,7 @@ Aplicativo de Comida
 ## Getting Started
 
 Aplicativo desenvolvido com objetivo de explorar os recursos do Flutter para criação de interfaces.
-
+<br/>
 <img src="assets/screen_1.jpeg" width="200"/>
 <img src="assets/screen_2.jpeg" width="200"/>
 
