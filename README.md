@@ -8,6 +8,7 @@ Aplicativo desenvolvido com objetivo de explorar os recursos do Flutter para cri
 <br/>
 <img src="assets/screen_1.jpeg" width="200"/>
 <img src="assets/screen_2.jpeg" width="200"/>
+<img src="assets/screen_3.jpeg" width="200"/>
 
 A few resources to get you started if this is your first Flutter project:
 
