@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/src/pages/signin_page.dart';
+
 import 'package:foodapp/src/widget/order_card.dart';
 
 class OrderPage extends StatefulWidget {
@@ -67,19 +69,26 @@ class _OrderPageState extends State<OrderPage> {
             ],
           ),
           SizedBox(height: 20.0,),
-          Container(
-            width: fullWidth(context),
-            height: 50.0,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-            child: Center(
-              child: Text("Proceed to Checkout", style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-              ),),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => SignInPage())
+              );
+            },
+            child: Container(
+              width: fullWidth(context),
+              height: 50.0,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: Center(
+                child: Text("Proceed to Checkout", style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                ),),
+              ),
             ),
           ),
         ],
