@@ -1,20 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodapp/src/pages/signup_page.dart';
+import 'package:foodapp/src/pages/signin_page.dart';
 
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
 
   bool _passwordShow = false;
+
+  Widget UsernameFormField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: "Username",
+        hintStyle: TextStyle(color: Color(0XFFBDC2CB), fontSize: 18.0),
+      ),
+    );
+  }
 
   Widget EmailFormField() {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: "Your email or username",
+        hintText: "E-mail",
         hintStyle: TextStyle(color: Color(0XFFBDC2CB), fontSize: 18.0),
       ),
     );
@@ -34,33 +43,46 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
+  Widget ConfirmPasswordFormField() {
+    return TextFormField(
+      obscureText: !_passwordShow,
+      decoration: InputDecoration(
+        hintText: "Confirm password",
+        hintStyle: TextStyle(color: Color(0XFFBDC2CB), fontSize: 18.0),
+        suffixIcon: IconButton(
+          onPressed: () => setState(() => _passwordShow = !_passwordShow),
+          icon: _passwordShow ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
+        ),
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("Sign In", style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold,),),
+              Text("Sign Up", style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold,),),
               SizedBox(height: 100.0,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text("Forgotten Password?", style: TextStyle(fontSize: 18.0, color: Colors.blueAccent, fontWeight: FontWeight.bold,),),
-                ],
-              ),
-              SizedBox(height: 10.0,),
               Card(
                 elevation: 5.0,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: <Widget>[
+                      UsernameFormField(),
+                      SizedBox(height: 20.0,),
                       EmailFormField(),
                       SizedBox(height: 20.0,),
                       PasswordFormField(),
+                      SizedBox(height: 20.0,),
+                      ConfirmPasswordFormField()
                     ],
                   ),
                 ),
@@ -73,20 +95,20 @@ class _SignInPageState extends State<SignInPage> {
                   borderRadius: BorderRadius.circular(25.0),
                 ),
                 child: Center(
-                  child: Text("Sing In", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+                  child: Text("Sing Up", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
                 ),
               ),
               Divider(height: 20.0,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Don't have an account?", style: TextStyle(color: Color(0xFFBDC2CB), fontWeight: FontWeight.bold, fontSize: 18.0,),),
+                  Text("Do you have account?", style: TextStyle(color: Color(0xFFBDC2CB), fontWeight: FontWeight.bold, fontSize: 18.0,),),
                   SizedBox(width: 10.0,),
                   GestureDetector(
                     onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (_) => SignUpPage()
+                      builder: (_) => SignInPage()
                     )),
-                    child: Text("Sign Up", style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold, fontSize: 18.0,),),
+                    child: Text("Sign In", style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold, fontSize: 18.0,),),
                   )
                 ],
               )
